@@ -1,0 +1,5 @@
+<mat-selection-list [multiple]="false">
+    <mat-list-option *ngFor="let item of items; let index = index" (click)="selectItem(item, index)" [value]="item">
+        {{ item.title }}
+    </mat-list-option>
+</mat-selection-list>

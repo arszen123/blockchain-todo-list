@@ -1,0 +1,41 @@
+.sidenav-container {
+    height: 100%;
+}
+
+.sidenav {
+    width: 200px;
+}
+
+.sidenav .mat-toolbar {
+    background: inherit;
+}
+
+.mat-toolbar.mat-primary {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.container {
+    width: 75%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-areas: "left right";
+    grid-template-rows: auto;
+    column-gap: 10px;
+
+    & {
+        .left {
+            grid-area: left;
+        }
+        .right {
+            grid-area: right;
+        }
+    }
+    #add-item {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+    }
+}

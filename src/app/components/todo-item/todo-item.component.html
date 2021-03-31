@@ -1,0 +1,18 @@
+<mat-card class="example-card">
+    <mat-card-header>
+        <mat-card-title>{{ item.title }}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <p>
+            {{ item.description }}
+        </p>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-mini-fab color="primary" (click)="removeItem()">
+            <mat-icon>delete</mat-icon>
+        </button>
+        <button mat-mini-fab color="primary" (click)="toggleState()">
+            <mat-icon>{{ item.isCompleted ? 'remove_done' : 'done' }}</mat-icon>
+        </button>
+    </mat-card-actions>
+</mat-card>
