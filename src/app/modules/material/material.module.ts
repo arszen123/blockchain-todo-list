@@ -8,7 +8,8 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
-
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 const list = [
   MatListModule,
@@ -20,6 +21,8 @@ const list = [
   MatIconModule,
   MatInputModule,
   MatSelectModule,
+  MatDialogModule,
+  MatSnackBarModule,
 ];
 
 @NgModule({

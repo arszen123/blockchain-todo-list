@@ -1,27 +1,34 @@
-# BlockchainTodoList
+# BlockchainTodoList Application
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.6.
+## Pre requirements
 
-## Development server
+1. Ethereum development framework [Truffle](https://www.trufflesuite.com/truffle)
+2. Local Ethereum blockchain [Ganache](https://www.trufflesuite.com/ganache)
+3. Web3 provider [MetaMask](https://metamask.io/download.html)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Start application
 
-## Code scaffolding
+### Start local blockchain
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Run ```ganache``` cli, to start a local ethereum blockchain.
 
-## Build
+### Deploy contract
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Run ```truffle deploy``` to deploy contract on the local blockchain.
 
-## Running unit tests
+### Test contract
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Run ```truffle test``` to test the deployed contract.
 
-## Running end-to-end tests
+### Configure MetaMask
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+1. Change MetaMask network to localhost.
+2. Copy a private key from the available list, diplayed by ```ganache``` cli.
+3. In MetaMask, import a new account with the previously copied private key. Now you have some ETH, and you can interact with the application.
 
-## Further help
+### Start angular development server
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/` and connect the MetaMask account to the application.
+
+
+To use localStorage instead of Ethereum contract, modify the provider definition of ```TodoListService``` in ```app.module.ts``` to use the correct service class.

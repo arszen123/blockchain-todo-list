@@ -1,0 +1,11 @@
+<h2 mat-dialog-title>Missing web3 provider</h2>
+<mat-dialog-content class="mat-typography">
+    <p>Web3 provider not found.</p>
+    <p>Give a try for MetaMask, then realod the page</p>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <a href="https://metamask.io/download.html" target="blank" mat-flat-button color="primary" cdkFocusInitial>
+        Get MetaMask
+    </a>
+  <button mat-flat-button color="primary" (click)="reload()">Realod</button>
+</mat-dialog-actions>

@@ -5,11 +5,11 @@
     </mat-toolbar>
     <div class="container">
       <mat-card class="left">
-        <app-todo-list [items]="items$ | async" (itemSelected)="setSelectedItem($event)"></app-todo-list>
+        <app-todo-list [items]="items$ | async" [(selected)]="selectedItemIndex"></app-todo-list>
       </mat-card>
       <div class="right">
         <div *ngIf="isRightContent('show')">
-          <app-todo-item [item]="item" (onDelete)="removeItem()" (onToggleState)="toggleItemState()"></app-todo-item>
+          <app-todo-item [item]="selectedItem$ | async" (onDelete)="removeItem()" (onToggleState)="toggleItemState()"></app-todo-item>
         </div>
         <mat-card *ngIf="isRightContent('edit')">
           <app-create-todo-item (create)="save($event)"></app-create-todo-item>

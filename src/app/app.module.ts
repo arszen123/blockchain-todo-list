@@ -10,6 +10,8 @@ import { LocalTodoListApiService } from './services/local-todo-list-api.service'
 import { TodoListService } from './services/todo-list.service';
 import { LayoutModule } from '@angular/cdk/layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { TodoListContractService } from './services/todo-list-contract.service';
+import { DialogNoWeb3ProviderComponent } from './components/dialog-no-web3-provider/dialog-no-web3-provider.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +19,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     TodoListComponent,
     TodoItemComponent,
     CreateTodoItemComponent,
+    DialogNoWeb3ProviderComponent,
   ],
   imports: [
     BrowserModule,
@@ -27,7 +30,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     LayoutModule,
   ],
   providers: [
-    { provide: TodoListService, useClass: LocalTodoListApiService }
+    // Choose between localStorage and ethereum contract.
+    // { provide: TodoListService, useClass: LocalTodoListApiService },
+    { provide: TodoListService, useClass: TodoListContractService }
   ],
   bootstrap: [AppComponent]
 })

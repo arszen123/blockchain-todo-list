@@ -1,5 +1,10 @@
 <mat-selection-list [multiple]="false">
-    <mat-list-option *ngFor="let item of items; let index = index" (click)="selectItem(item, index)" [value]="item">
+    <mat-list-option
+        *ngFor="let item of items; let index = index"
+        (click)="selectItem(index)"
+        [value]="item"
+        [selected]="selected === index"
+        [class]="{completed: item.isCompleted}">
         {{ item.title }}
     </mat-list-option>
 </mat-selection-list>

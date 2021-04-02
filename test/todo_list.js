@@ -15,7 +15,7 @@ contract("TodoList", function (accounts) {
 
   it("should add a new item", async function() {
     const contract = await TodoList.deployed();
-    const res = await contract.addItem(accounts[0], item.title, item.description);
+    const res = await contract.addItem(item.title, item.description, {from: accounts[0]});
     truffleAssertions.eventEmitted(res, 'ItemAdded', (e) => {
       return e._title === item.title && e._description === item.description
     })
@@ -34,14 +34,14 @@ contract("TodoList", function (accounts) {
   });
   it("should toggle the newly added item state", async function () {
     const contract = await TodoList.deployed();
-    const res = await contract.toggleItemState(accounts[0], 0);
+    const res = await contract.toggleItemState(0, {from: accounts[0]});
     truffleAssertions.eventEmitted(res, 'ItemStateToggled', (e) => {
       return e._isCompleted === true;
     })
   });
   it("should remove the newly added item", async function () {
     const contract = await TodoList.deployed();
-    const res = await contract.removeItem(accounts[0], 0);
+    const res = await contract.removeItem(0, {from: accounts[0]});
     truffleAssertions.eventEmitted(res, 'ItemRemoved', (e) => {
       return e._title === item.title && e._description === item.description;
     })
@@ -59,12 +59,12 @@ contract("TodoList", function (accounts) {
     });
     it("tries to toggle a non existent item state", async function() {
       const contract = await TodoList.deployed();
-      const res = contract.toggleItemState(accounts[0], 100);
+      const res = contract.toggleItemState(100, {from: accounts[0]});
       truffleAssertions.reverts(res, 'Out of bound!');
     });
     it("tries to remove a non existent item", async function() {
       const contract = await TodoList.deployed();
-      const res = contract.removeItem(accounts[0], 100);
+      const res = contract.removeItem(100, {from: accounts[0]});
       truffleAssertions.reverts(res, 'Out of bound!');
     });
   });
